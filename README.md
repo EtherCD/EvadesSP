@@ -1,6 +1,6 @@
 <div align="center">
-<img src="./repo/logo.svg" alt="logo"/></div>
+<img src="./repo/logo.svg" alt="logo" width="600"/></div>
 
 > In developing...
 
-> example use in [BlueMSG.js](./repo/examples/)
+> example use in [/examples](./repo/examples/)
