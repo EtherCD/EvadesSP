@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --env mode=development",
+    "fbuild": "node ./builder.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ts-loader": "^9.5.1",
     "tsc": "^2.0.4",
     "typescript": "^5.4.2",

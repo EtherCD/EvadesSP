@@ -1,13 +1,13 @@
 // ==UserScript==
-// @name         Evades-SP
-// @version      p0r1e5
-// @description  Evades Scripts Paradise
+// @name         Evades-SP Dev
+// @version      dev
+// @description  Dev version of E-SP, may contain errors
 // @author       @EtherCD
 // @match        https://*.evades.io/*
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=mozilla.org
+// @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp-dev.js
+// @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp-dev.js
+// @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/favicon-dev.svg
 // @run-at       document-idle
-// @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js
-// @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js
 // @grant        none
 // ==/UserScript==
 
