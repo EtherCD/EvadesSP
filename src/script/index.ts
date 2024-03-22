@@ -14,9 +14,9 @@ export default class Script {
 
   constructor(info: ScriptInfo) {
     this.name = info.name;
-    this.icon = info.icon ?? '';
+    this.icon = info.icon ?? 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg';
     this.version = info.version ?? 'none';
-    this.description = info.description ?? 'none';
+    this.description = info.description ?? 'Description is not added';
 
     this.enabled = true;
   }

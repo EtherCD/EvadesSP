@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Example Script
+// @name         BlueMsg
 // @version      -
 // @description  Changes color of message area
 // @author       @EtherCD
 // @match        https://*.evades.io/*
-// @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/e86210f798636232a6dd072e23448290c44cd9bf/repo/favicon.svg
+// @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/e86210f798636232a6dd072e23448290c44cd9bf/repo/icons/bluemsg.svg
 // @run-at       document-idle
 // @grant        none
 // ==/UserScript==
@@ -16,10 +16,10 @@
   }
 
   window.scripts.add({
-    name: 'ExampleScript',
+    name: 'BlueMsg',
     version: '-',
     description: 'Changes color of message area',
-    icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/e86210f798636232a6dd072e23448290c44cd9bf/repo/favicon.svg',
+    icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/e86210f798636232a6dd072e23448290c44cd9bf/repo/icons/bluemsg.svg',
   });
 
   const script = window.scripts.get('ExampleScript');
