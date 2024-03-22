@@ -41,7 +41,7 @@ export default class Script {
     return this.vars[key];
   }
 
-  init(code: string) {
+  patch(code: string) {
     for (const i in this.replaces) code = code.replace(this.replaces[i][0], this.replaces[i][1]);
     console.log(this.name + ' was loaded!');
     return code;

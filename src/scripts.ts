@@ -28,7 +28,7 @@ export default class Scripts {
     req.open('GET', src, false);
     req.send();
     let code = req.response;
-    for (const s in this.scripts) code = this.scripts[s].init(code);
+    for (const s in this.scripts) code = this.scripts[s].patch(code);
 
     let nScr = document.createElement('script');
     nScr.setAttribute('type', 'module');

@@ -59,12 +59,13 @@ async function build() {
     await patchFile('./build/evadessp.js', [
       ['name', 'Evades-SP'],
       ['version', version],
-      ['description', 'Evades Scripts Paradise'],
+      ['description', 'Evades Scripts Paradise, common script that links other scripts'],
       ['author', 'EtherCD'],
       ['match', 'https://*.evades.io/*'],
       ['downloadURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js'],
       ['updateURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js'],
       ['icon', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/favicon.svg'],
+      ['license', 'MIT License'],
       ['run-at', 'document-idle'],
       ['grant', 'none'],
     ]);
