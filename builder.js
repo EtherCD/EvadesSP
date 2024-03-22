@@ -60,7 +60,7 @@ async function build() {
       ['name', 'Evades-SP'],
       ['version', version],
       ['description', 'Evades Scripts Paradise, common script that links other scripts'],
-      ['author', 'EtherCD'],
+      ['author', '@EtherCD, styles by @duesti.'],
       ['match', 'https://*.evades.io/*'],
       ['downloadURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp.js'],
       ['updateURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp.js'],
