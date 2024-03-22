@@ -1,13 +1,7 @@
-import SettingsElement from './settings';
+import SettingsElement from './iu';
 
 export default class Dom {
-  elements: Array<HTMLElement> = [];
-
   settings = new SettingsElement();
-
-  add(elem: HTMLElement) {
-    this.elements.push(elem);
-  }
 
   push() {
     this.settings.push();

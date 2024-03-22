@@ -2,17 +2,30 @@ import Script from './script';
 import { ScriptInfo } from './types';
 
 export default class Scripts {
-  scripts: Array<Script> = [];
+  list: Array<Script> = [];
 
-  add(info: ScriptInfo) {
-    this.scripts.push(new Script(info));
+  add(info: ScriptInfo): void {
+    this.list.push(new Script(info));
+  }
+
+  create(info: ScriptInfo): Script {
+    const script = new Script(info);
+    this.list.push(script);
+    return script;
   }
 
   get(name: string): Script {
-    for (const i in this.scripts) {
-      if (this.scripts[i].name === name) return this.scripts[i];
+    for (const i in this.list) {
+      if (this.list[i].name === name) return this.list[i];
     }
-    throw new Error('Script is not found!');
+    console.log(name);
+    console.warn(`Loading Script Error: Trying get not exists script, name: ${name}`);
+  }
+
+  forEach(callback: (e: Script) => void) {
+    for (const e in this.list) {
+      callback(this.list[e]);
+    }
   }
 
   init() {
@@ -28,7 +41,7 @@ export default class Scripts {
     req.open('GET', src, false);
     req.send();
     let code = req.response;
-    for (const s in this.scripts) code = this.scripts[s].patch(code);
+    for (const s in this.list) code = this.list[s].patch(code);
 
     let nScr = document.createElement('script');
     nScr.setAttribute('type', 'module');

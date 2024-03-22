@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const fs = require('fs');
 
-const version = 'exp-6';
+const version = 'exp-7';
 
 function runWebpack() {
   return new Promise((resolve, reject) => {
@@ -62,8 +62,8 @@ async function build() {
       ['description', 'Evades Scripts Paradise, common script that links other scripts'],
       ['author', 'EtherCD'],
       ['match', 'https://*.evades.io/*'],
-      ['downloadURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js'],
-      ['updateURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSp/main/build/evadessp.js'],
+      ['downloadURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp.js'],
+      ['updateURL', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp.js'],
       ['icon', 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/favicon.svg'],
       ['license', 'MIT License'],
       ['run-at', 'document-idle'],

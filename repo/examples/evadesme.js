@@ -12,14 +12,12 @@
 (() => {
   if (!window.scripts) return;
 
-  window.scripts.add({
+  const script = window.scripts.add({
     name: 'EvadesME',
     version: '-',
     description: 'Adds background fill to the region style',
     icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg',
   });
-
-  const script = window.scripts.get('EvadesME');
 
   const worlds = {
     'Central Core': ['#425a6d', 0.1],
