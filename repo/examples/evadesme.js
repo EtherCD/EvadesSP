@@ -12,7 +12,7 @@
 (() => {
   if (!window.scripts) return;
 
-  const script = window.scripts.add({
+  const script = window.scripts.create({
     name: 'EvadesME',
     version: '-',
     description: 'Adds background fill to the region style',

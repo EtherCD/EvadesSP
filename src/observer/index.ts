@@ -1,12 +1,14 @@
-import { isPage, submitChanges, updateState } from './helper';
+import { updateState } from './helper';
+import { ObserverSubscriber } from './types';
 
-export const observerRegister = () => {
-  window.observerState = {
-    cur: { currentPage: 'menu' },
-    old: { currentPage: 'menu' },
-  };
-  window.observerSubs = [];
-  document.body.addEventListener('DOMNodeInserted', (e) => updateState(e), false);
+let subscribers: Array<ObserverSubscriber> = [];
+
+export const init = () => {
+  document.body.addEventListener('DOMNodeInserted', (e) => updateState(e, subscribers), false);
+};
+
+export const addSubscriber = (callback: ObserverSubscriber) => {
+  subscribers.push(callback);
 };
 
 export * from './helper';

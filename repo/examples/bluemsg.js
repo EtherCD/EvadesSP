@@ -15,7 +15,7 @@
     return;
   }
 
-  const script = window.scripts.add({
+  const script = window.scripts.create({
     name: 'BlueMsg',
     version: '-',
     description: 'Changes color of message area',

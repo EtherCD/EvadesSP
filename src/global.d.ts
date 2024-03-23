@@ -1,11 +1,10 @@
-import { ObserverState, ObserverSubscriber } from './observer/types';
-import Scripts from './scripts';
+import { Scripts } from './scripts';
+import { SDom } from './sdom';
 
 declare global {
   interface Window {
-    scripts: Scripts;
-    observerState: { cur: ObserverState; old: ObserverState };
-    observerSubs: Array<ObserverSubscriber>;
+    sdom: SDom;
     tsmod?: boolean;
+    scripts: Scripts;
   }
 }

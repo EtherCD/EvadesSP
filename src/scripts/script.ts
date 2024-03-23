@@ -1,4 +1,4 @@
-import { ScriptInfo } from '../types';
+import { ScriptInfo } from './types';
 import { Replace, Vars } from './types';
 
 export default class Script {

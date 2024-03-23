@@ -1,5 +1,3 @@
-import { addStyle } from '../../styles';
-
 export namespace ButtonMarking {
   export const makeButton = (): HTMLDivElement => {
     makeStyles();
@@ -22,7 +20,7 @@ export namespace ButtonMarking {
   };
 
   const makeStyles = () => {
-    addStyle(
+    window.sdom.addStyle(
       `.esp-scripts-button {cursor: pointer;position: absolute;bottom: 10px;right: 10px;}.esp-scripts-button-icon {width: 36px;height: 36px;}`
     );
   };

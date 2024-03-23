@@ -1,27 +1,30 @@
+import { ObserverState, ObserverSubscriber } from './types';
+
+let curState: ObserverState = { currentPage: 'menu' };
+let oldState: ObserverState = { currentPage: 'menu' };
+
 export const isPage = (event: Event, className: string) =>
   (event.target as HTMLDivElement).classList ? (event.target as HTMLDivElement).classList.contains(className) : false;
 
 export const checkChanges = () => {
-  if (window.observerState.cur.currentPage !== window.observerState.old.currentPage) {
-    window.observerState.old = JSON.parse(JSON.stringify(window.observerState.cur));
+  if (curState.currentPage !== oldState.currentPage) {
+    oldState = JSON.parse(JSON.stringify(curState));
     return true;
   }
   return false;
 };
 
-export const submitChanges = () => {
-  if (checkChanges()) window.observerSubs.forEach((os) => os(window.observerState.cur));
+export const submitChanges = (subs: Array<ObserverSubscriber>) => {
+  if (checkChanges()) subs.forEach((os) => os(curState));
 };
 
-export const updateState = (event: Event) => {
+export const updateState = (event: Event, subs: Array<ObserverSubscriber>) => {
   if ((event.target as HTMLDivElement).classList ? (event.target as HTMLDivElement).classList.length === 0 : true)
     return;
-  let state = window.observerState.cur;
-  if (isPage(event, 'menu')) state.currentPage = 'menu';
-  if (isPage(event, 'server-browser-box')) state.currentPage = 'server-list';
-  if (isPage(event, 'leaderboard-title-break')) state.currentPage = 'game';
-  if (isPage(event, 'hero-select')) state.currentPage = 'hero-select';
-  if (isPage(event, 'results')) state.currentPage = 'game-end';
-  window.observerState.cur = state;
-  submitChanges();
+  if (isPage(event, 'menu')) curState.currentPage = 'menu';
+  if (isPage(event, 'server-browser-box')) curState.currentPage = 'server-list';
+  if (isPage(event, 'leaderboard-title-break')) curState.currentPage = 'game';
+  if (isPage(event, 'hero-select')) curState.currentPage = 'hero-select';
+  if (isPage(event, 'results')) curState.currentPage = 'game-end';
+  submitChanges(subs);
 };
