@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Evades-SP Dev
-// @version      dev-3
+// @version      dev-4
 // @description  Dev version of E-SP, may contain errors
 // @author       @EtherCD, styles by @duesti.
 // @match        https://*.evades.io/*

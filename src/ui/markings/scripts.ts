@@ -56,7 +56,7 @@ export namespace ScriptsMenuMarking {
 
     const scriptNameSpan = document.createElement('span');
     scriptNameSpan.classList.add('esp-script-name');
-    scriptNameSpan.innerHTML = e.name;
+    scriptNameSpan.innerHTML = e.name + ' - ' + e.version;
     /* Adds Script Name */
     divContainer.appendChild(scriptNameSpan);
 

@@ -1,7 +1,7 @@
 const { exec } = require('child_process');
 const fs = require('fs');
 
-const version = 'exp-8';
+const version = 'beta-1';
 
 function runWebpack() {
   return new Promise((resolve, reject) => {

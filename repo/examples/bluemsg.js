@@ -10,14 +10,10 @@
 // ==/UserScript==
 
 (() => {
-  if (!window.scripts) {
-    console.log('BlueMsg is not working without EvadesSP');
-    return;
-  }
+  if (!window.scripts) return;
 
   const script = window.scripts.create({
     name: 'BlueMsg',
-    version: '-',
     description: 'Changes color of message area',
     icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/bluemsg.svg',
   });

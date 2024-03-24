@@ -1,9 +1,11 @@
 // ==UserScript==
 // @name         EvadesME
-// @version      -
+// @version      r3b1
 // @description  Evades More Experience
 // @author       @EtherCD
 // @match        https://*.evades.io/*
+// @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/evadesme.js
+// @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/evadesme.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg
 // @run-at       document-idle
 // @grant        none
@@ -14,7 +16,7 @@
 
   const script = window.scripts.create({
     name: 'EvadesME',
-    version: '-',
+    version: 'r3b1',
     description: 'Adds background fill to the region style',
     icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg',
   });
