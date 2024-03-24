@@ -6,6 +6,9 @@ let oldState: ObserverState = { currentPage: 'menu' };
 export const isElement = (event: Event, className: string) =>
   (event.target as HTMLDivElement).classList ? (event.target as HTMLDivElement).classList.contains(className) : false;
 
+export const isElementId = (event: Event, id: string) =>
+  (event.target as HTMLDivElement).id ? (event.target as HTMLDivElement).id === id : false;
+
 export const checkChanges = () => {
   if (curState.currentPage !== oldState.currentPage) {
     oldState = JSON.parse(JSON.stringify(curState));
@@ -22,14 +25,19 @@ export const pingAllListeners = (subs: Array<ObserverSubscriber>, events: Observ
         type: event.type,
       };
       event.value ? (observerEvent.value = event.value) : 'none';
-      event.target ? (observerEvent.target = event.value) : 'none';
+      event.target ? (observerEvent.target = event.target) : 'none';
       subs.forEach((v) => v(observerEvent));
     }
   }
 };
 
 export const updateState = (event: Event, subs: Array<ObserverSubscriber>) => {
-  if ((event.target as HTMLDivElement).classList ? (event.target as HTMLDivElement).classList.length === 0 : true)
+  if (
+    !(
+      ((event.target as HTMLDivElement).id ? (event.target as HTMLDivElement).id.length !== 0 : false) ||
+      ((event.target as HTMLDivElement).classList ? (event.target as HTMLDivElement).classList.length !== 0 : false)
+    )
+  )
     return;
   if (isElement(event, 'menu')) curState.currentPage = 'menu';
   if (isElement(event, 'server-browser-box')) curState.currentPage = 'server-list';
@@ -45,6 +53,11 @@ export const updateState = (event: Event, subs: Array<ObserverSubscriber>) => {
     {
       type: 'chat-message',
       statement: isElement(event, 'chat-message'),
+      target: event.target as HTMLDivElement,
+    },
+    {
+      type: 'chat-window-added',
+      statement: isElementId(event, 'chat-window'),
       target: event.target as HTMLDivElement,
     },
   ];

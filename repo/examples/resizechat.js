@@ -21,9 +21,14 @@
     icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg',
   });
 
+  var chatWindow;
+
+  var startX, startY, startWidth, startHeight;
+  var newWidth, newHeight, scale, newHeightWindow;
+
   const resizableChat = () => {
     let chat = document.getElementById('chat');
-    var chatWindow = document.getElementById('chat-window');
+    chatWindow = document.getElementById('chat-window');
     if (!chat) return;
     chat.addEventListener(
       'click',
@@ -37,9 +42,6 @@
       },
       false
     );
-
-    var startX, startY, startWidth, startHeight;
-    var newWidth, newHeight, scale;
 
     function initDrag(e) {
       scale = chat.style.transform.match(/scale\(([^\)]+)\)/);
@@ -62,6 +64,7 @@
       chat.style.height = y;
       chatWindow.style.width = x;
       chatWindow.style.height = jy - 30 + 'px';
+      newHeightWindow = jy - 30 + 'px';
       newWidth = x;
       newHeight = y;
     }
@@ -87,19 +90,17 @@
       chat.style.width = newWidth;
       chat.style.height = newHeight;
     };
+  };
 
-    document.addEventListener('keyup', function (e) {
-      if (e.keyCode === 86) {
-        if (!chat.hidden) {
-          chatWindow = document.getElementById('chat-window');
-          console.log('Changed');
-        }
-      }
-    });
+  const updateChatWindow = (target) => {
+    target.style.width = newWidth;
+    target.style.height = newHeightWindow;
+    chatWindow = target;
   };
 
   window.sdom.addObserverSubscriber((v) => {
     if (v.type === 'change-page' && v.value === 'game') resizableChat();
+    if (v.type === 'chat-window-added') updateChatWindow(v.target);
   });
   window.sdom.addStyle(
     `.sp-chat-resizer { width: 10px; height: 10px; background: #ffffff55; position:absolute; right: 0; bottom: 25px; cursor: se-resize; }`

@@ -1,6 +1,6 @@
 export type CurrentPage = 'menu' | 'server-list' | 'hero-select' | 'game' | 'game-end';
 
-export type EventType = 'change-page' | 'chat-message';
+export type EventType = 'change-page' | 'chat-message' | 'chat-window-added';
 
 export interface ObserverState {
   currentPage: CurrentPage;

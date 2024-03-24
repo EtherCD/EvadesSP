@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Nekosed Heroes
-// @version      e1n2
+// @version      pre-release-1
 // @description  Nekosed Heroes for Evades.io
 // @author       @EtherCD, nekoses by @Plot1na
-// @match        https://*.evades.io/*
+// @match        https://*.evades.io/
 // @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/nekos.js
 // @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/nekos.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/nekos.svg
@@ -13,22 +13,17 @@
 
 const neko = {
   loadNeko() {
-    const nekoechlone = new Image();
-    nekoechlone.onload = () => {
-      window.nekoechlone = nekoechlone;
+    const neko = new Image();
+    neko.onload = () => {
+      window.neko = neko;
     };
-    nekoechlone.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekoechalone.png?raw=true';
-    const nekonecro = new Image();
-    nekonecro.onload = () => {
-      window.nekonecro = nekonecro;
-    };
-    nekonecro.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekonecro.png?raw=true';
+    neko.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekoechalone.png?raw=true';
   },
 
   replaces: [
     [
       /(renderAccessory\(\w\,\w\,\w\)\{)([\w\d\$<>+&*|!\[\]\{\}\/\-="'.,;#?:\s\(\)]+\})/g,
-      `$1 if (this.heroType === 26 || this.heroType === 4) { e.globalAlpha = this.isDowned() ? 0.4 : 1; e.drawImage(this.heroType === 4 ? window.nekonecro : window.nekoechlone, t - (5 * this.radius) / 3,a - (5 * this.radius) / 3,(10 * this.radius) / 3,(10 * this.radius) / 3); e.globalAlpha = 1; }; $2`,
+      `$1 e.globalAlpha = this.isDowned() ? 0.4 : 1; e.drawImage(window.neko, t - (5 * this.radius) / 3,a - (5 * this.radius) / 3,(10 * this.radius) / 3,(10 * this.radius) / 3); e.globalAlpha = 1; $2`,
     ],
   ],
 
@@ -58,7 +53,7 @@ const neko = {
     window.scripts
       .create({
         name: 'NekoedHeroes',
-        version: 'e1n2',
+        version: 'pre-release-1',
         description: 'Neko Echalone and Necro >:3',
         icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/nekos.svg',
       })
