@@ -17,12 +17,12 @@ const neko = {
     nekoechlone.onload = () => {
       window.nekoechlone = nekoechlone;
     };
-    nekoechlone.src = 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/asses/nekoechalone.png';
+    nekoechlone.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekoechalone.png?raw=true';
     const nekonecro = new Image();
     nekonecro.onload = () => {
       window.nekonecro = nekonecro;
     };
-    nekonecro.src = 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/asses/nekonero.png';
+    nekonecro.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekonecro.png?raw=true';
   },
 
   replaces: [
