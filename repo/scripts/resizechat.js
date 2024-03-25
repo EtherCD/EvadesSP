@@ -12,6 +12,9 @@
 // ==/UserScript==
 
 (() => {
+  if (window.esp1beta1exp1resizablechatspenabled) return;
+  window.esp1beta1exp1resizablechatspenabled = true;
+
   var chatWindow;
 
   var startX, startY, startWidth, startHeight;
