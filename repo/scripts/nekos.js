@@ -13,17 +13,22 @@
 
 const neko = {
   loadNeko() {
-    const neko = new Image();
-    neko.onload = () => {
-      window.neko = neko;
+    const nekoechlone = new Image();
+    nekoechlone.onload = () => {
+      window.nekoechlone = nekoechlone;
     };
-    neko.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekoechalone.png?raw=true';
+    nekoechlone.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekoechalone.png?raw=true';
+    const nekonecro = new Image();
+    nekonecro.onload = () => {
+      window.nekonecro = nekonecro;
+    };
+    nekonecro.src = 'https://github.com/EtherCD/Evades-SP/blob/main/repo/assets/nekonecro.png?raw=true';
   },
 
   replaces: [
     [
       /(renderAccessory\(\w\,\w\,\w\)\{)([\w\d\$<>+&*|!\[\]\{\}\/\-="'.,;#?:\s\(\)]+\})/g,
-      `$1 e.globalAlpha = this.isDowned() ? 0.4 : 1; e.drawImage(window.neko, t - (5 * this.radius) / 3,a - (5 * this.radius) / 3,(10 * this.radius) / 3,(10 * this.radius) / 3); e.globalAlpha = 1; $2`,
+      `$1 if (this.heroType === 26 || this.heroType === 4) { e.globalAlpha = this.isDowned() ? 0.4 : 1; e.drawImage(this.heroType === 4 ? window.nekonecro : window.nekoechlone, t - (5 * this.radius) / 3,a - (5 * this.radius) / 3,(10 * this.radius) / 3,(10 * this.radius) / 3); e.globalAlpha = 1; }; $2`,
     ],
   ],
 
