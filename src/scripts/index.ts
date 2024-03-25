@@ -5,13 +5,20 @@ export class Scripts {
   list: Array<Script> = [];
 
   add(info: ScriptInfo): void {
-    this.list.push(new Script(info));
+    if (!this.includes(info.name)) this.list.push(new Script(info));
   }
 
   create(info: ScriptInfo): Script {
     const script = new Script(info);
     this.list.push(script);
     return script;
+  }
+
+  includes(name: string) {
+    for (const i in this.list) {
+      if (this.list[i].name === name) return true;
+    }
+    return false;
   }
 
   get(name: string): Script {

@@ -31,10 +31,12 @@
   };
 
   const restoreAllMessages = (target) => {
-    console.log(target);
     target.childNodes.forEach((e, i) => {
       if (messagesTimes[i]) {
         e.innerHTML = `<span class="chat-message-time">${messagesTimes[i]} </span>` + e.innerHTML;
+      } else {
+        messagesTimes.push('[none]');
+        e.innerHTML = `<span class="chat-message-time">[none] </span>` + e.innerHTML;
       }
     });
   };

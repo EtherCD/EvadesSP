@@ -3,4 +3,4 @@
 
 > In developing...
 
-> example use in [/examples](./repo/examples/)
+> example use in [/examples](./repo/scripts/)
