@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Nekosed Heroes
-// @version      pre-release-1
+// @version      pre-release-2
 // @description  Nekosed Heroes for Evades.io
 // @author       @EtherCD, nekoses by @Plot1na
 // @match        https://*.evades.io/
@@ -58,7 +58,7 @@ const neko = {
     window.scripts
       .create({
         name: 'NekoedHeroes',
-        version: 'pre-release-1',
+        version: 'pre-release-2',
         description: 'Neko Echalone and Necro >:3',
         icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/nekos.svg',
       })
@@ -71,4 +71,6 @@ const neko = {
   },
 };
 
-neko.load();
+document.addEventListener('readystatechange', () => {
+  neko.load();
+});
