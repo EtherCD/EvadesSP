@@ -7,7 +7,7 @@
 // @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp-dev.js
 // @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/build/evadessp-dev.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/favicon-dev.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @license      MIT License
 // @grant        none
 // ==/UserScript==
