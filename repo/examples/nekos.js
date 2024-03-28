@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Nekosed Heroes
-// @version      pre-release-3
+// @version      pre-release-4
 // @description  Nekosed Heroes for Evades.io
 // @author       @EtherCD, nekoses by @Plot1na
 // @match        https://*.evades.io/
@@ -32,6 +32,9 @@ const neko = {
   ],
 
   insertCode(code) {
+    const styles = Array.from(document.head.querySelectorAll('style'));
+    let tsModStyles = styles.filter((e) => e.innerHTML.match(/#version-warning/g) !== null)[0];
+
     // From script by @Zirolio: E-UI-Zond
     const xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://evades.io', true);
@@ -39,10 +42,12 @@ const neko = {
       const html = xhr.responseText.replace(/(type="module" src=")(\/index\.[0-9a-zA-Z]+\.js)/g, (_, a) => a + '/ ');
       document.documentElement.innerHTML = html;
 
-      let s = document.createElement('script');
-      s.setAttribute('type', 'module');
-      s.innerHTML = code;
-      document.body.appendChild(s);
+      let script = document.createElement('script');
+      script.setAttribute('type', 'module');
+      script.innerHTML = code;
+      document.body.appendChild(script);
+
+      if (tsModStyles) document.head.appendChild(tsModStyles);
 
       console.log('NekosedHeroes was loaded normal.');
     };
@@ -67,37 +72,34 @@ const neko = {
     req.send();
   },
 
+  loadNormalOnTimeout(_, o) {
+    setTimeout(() => {
+      neko.loadNormal();
+    }, 100);
+    o.disconnect();
+  },
+
   withSp() {
+    if (window.nekoses) return;
     window.scripts
       .create({
         name: 'NekosedHeroes',
-        version: 'pre-release-3',
+        version: 'pre-release-4',
         description: 'Neko Echalone and Necro >:3',
         icon: 'https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/nekos.svg',
       })
       .addReplaces(...neko.replaces);
   },
 
-  load(_, o) {
+  load() {
     if (window.nekoses) {
-      o.disconnect();
       return;
     }
     neko.preload();
     window.scripts
       ? neko.withSp()
-      : setTimeout(() => {
-          neko.loadNormal();
-        }, 200);
-    o.disconnect();
+      : new MutationObserver(neko.loadNormalOnTimeout).observe(document, { childList: true, subtree: true });
   },
 };
 
-// const obs = document.addEventListener('DOMNodeInserted', (e) => {
-//   if (e.target.classList && e.target.classList[0] && e.target.classList.contains('menu')) {
-//     neko.load();
-//     document.removeEventListener(obs);
-//   }
-// });
-
-new MutationObserver(neko.load).observe(document, { childList: true, subtree: true });
+neko.load();

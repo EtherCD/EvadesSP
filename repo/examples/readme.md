@@ -12,7 +12,7 @@ Example Script:
 // @author       You
 // @match        https://*.evades.io/*
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/empty-script.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
@@ -70,18 +70,21 @@ script.addReplace(/\'name\'/g, '#{name}'); // Automatically replace with an entr
 
 ## Using Observer:
 
-> state
+> event
 >
-> > currentPage = 'menu' | 'server-list' | 'hero-select' | 'game' | 'game-end'
+> > type = 'change-page' | 'chat-message' | 'chat-window-added'
+>
+> > if type === 'change-page': event includes (value = 'menu' | 'server-list' | 'hero-select' | 'game' | 'game-end')
+>
+> > if type !== 'change-page': event includes (target typeof HTMLElement)
 
 For example, you need to track the moment of hitting the page (since the game is adding elements in real time, this will be difficult).
 
 Solution with observer:
 
 ```js
-window.sdom.addObserverSubscriber((state) => {
-  if (state.currentPage === 'game') {
-    // Do something
-  }
+window.sdom.addObserverSubscriber((event) => {
+  if (event.type === 'change-page') console.log(event.value);
+  if (event.type === 'chat-message' || event.type === 'chat-window-added') console.log(event.target);
 });
 ```

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Evades-SP Dev
-// @version      dev-4
+// @version      dev-5
 // @description  Dev version of E-SP, may contain errors
 // @author       @EtherCD, styles by @duesti.
 // @match        https://*.evades.io/*
@@ -12,19 +12,16 @@
 // @grant        none
 // ==/UserScript==
 
-import * as observer from './observer';
+import { init } from './init';
 import * as scripts from './scripts';
 import * as sdom from './sdom';
-import ui from './ui';
 
-window.scripts = new scripts.Scripts();
-observer.init();
-window.sdom = new sdom.SDom();
+(() => {
+  if (window.scripts) return;
 
-document.addEventListener('readystatechange', () => {
-  if (window.location.href.search(/\/profile/g) === -1 && window.location.href.search(/\/account/g) === -1) {
-    scripts.init();
-    ui.init();
-  }
-  sdom.init();
-});
+  window.scripts = new scripts.Scripts();
+  window.sdom = new sdom.SDom();
+
+  if (window.location.href.search(/\/profile/g) === -1 && window.location.href.search(/\/account/g) === -1)
+    new MutationObserver(init).observe(document, { childList: true, subtree: true });
+})();

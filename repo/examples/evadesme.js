@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         EvadesME
-// @version      r3b1
+// @version      r3b2
 // @description  Evades More Experience
 // @author       @EtherCD
 // @match        https://*.evades.io/*
 // @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/evadesme.js
 // @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/evadesme.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 

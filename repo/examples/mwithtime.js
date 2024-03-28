@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Chat messages with Time SP
-// @version      exp-1
+// @version      exp-2
 // @description  Adds timestamp of accepting message from chat
 // @author       @EtherCD
 // @match        https://*.evades.io/*
 // @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/mwithtime.js
 // @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/mwithtime.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/mwithtime.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 

@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         ResizableChatSP
-// @version      exp3
+// @version      exp4
 // @description  Resizable Chat for Evades.io game, with script EvadesSP
 // @author       @EtherCD
 // @match        https://*.evades.io/*
 // @downloadURL  https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/chatsp.js
 // @updateURL    https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/examples/chatsp.js
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/empty-script.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 

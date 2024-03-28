@@ -38,4 +38,3 @@ export class Scripts {
 
 export * from './script';
 export * from './types';
-export * from './init';

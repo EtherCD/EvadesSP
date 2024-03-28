@@ -5,7 +5,7 @@
 // @author       @EtherCD
 // @match        https://*.evades.io/*
 // @icon         https://raw.githubusercontent.com/EtherCD/EvadesSP/main/repo/icons/bluemsg.svg
-// @run-at       document-idle
+// @run-at       document-start
 // @grant        none
 // ==/UserScript==
 
